@@ -8,8 +8,36 @@
   </head>
   <body>
     <h1>Hola</h1>
+    <form id="form">
+      <input type="text" placeholder="Name" id="user_name">
+      <input type="text" placeholder="Email" id="user_mail">
+      <input type="text" placeholder="Phone" id="user_phone">
+    </form>
+
+    <button id="click1">CLICK1</button>
+    <button id="click1">CLICK2 CLOSE</button>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+
+      let tg = window.Telegram.Webapp;
+
+     
+
+      let cl1 = document.getElementById("click1");
+      let cl2 = document.getElementById("click2");
+
+      cl1.addEventListener("click", () => {
+        document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
+      });
+
+      cl2.addEventListener("click", () => {
+        tg.close();
+      });
+      
+
+    </script>
   </body>
 </html>
