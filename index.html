@@ -10,10 +10,7 @@
     <link rel="stylesheet" crossorigin href="/kok1/assets/index-DiwrgTda.css">
   </head>
   <body>
-    
-
-    <div id="root"></div>
-    
+    <br>
     <h1>Hola</h1>
     <form id="form">
       <input type="text" placeholder="Name" id="user_name">
@@ -24,7 +21,8 @@
     <button id="click1">CLICK1</button>
     <button id="click2">CLICK2</button>
 
-    <button id="click3">CLICK3</button>
+    <div id="root"></div>
+    
     
 
     <script>
@@ -34,11 +32,6 @@
 
       let cl1 = document.getElementById("click1");
       let cl2 = document.getElementById("click2");
-      let cl3 = document.getElementById("click3");
-
-      let name = document.getElementById("user_name").value;
-      let email = document.getElementById("user_email").value;
-      let phone = document.getElementById("user_phone").value;
 
       cl1.addEventListener("click", () => {
         document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
@@ -49,9 +42,6 @@
         tg.close();
       });
       
-      cl3.addEventListener("click", () => {
-        tg.sendData("DANNIE S SITE= " + name + "|" + email + "|" + phone)
-      });
 
     </script>
   </body>
