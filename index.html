@@ -5,6 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/kok1/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script type="module" crossorigin src="/kok1/assets/index-Cm4IjmZb.js"></script>
     <link rel="stylesheet" crossorigin href="/kok1/assets/index-DiwrgTda.css">
   </head>
@@ -20,12 +21,13 @@
     <button id="click1">CLICK2 CLOSE</button>
 
     <div id="root"></div>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    
+    
+
     <script>
 
-      let tg = window.Telegram.Webapp;
+      let tg = window.Telegram.WebApp;
 
-     
 
       let cl1 = document.getElementById("click1");
       let cl2 = document.getElementById("click2");
@@ -35,6 +37,7 @@
       });
 
       cl2.addEventListener("click", () => {
+        alert("Значение было получено!" + tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name);
         tg.close();
       });
       
