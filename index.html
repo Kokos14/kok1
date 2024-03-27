@@ -26,6 +26,30 @@
     
 
     <script>
+      
+      const connection = mysql.createConnection({
+        host: 'KOKOS1K.mysql.pythonanywhere-services.com',
+        user: 'KOKOS1K',
+        password: 'koks151515',
+        database: 'tg'
+      });
+
+      connection.connect(err => {
+        if (err) {
+          console.error('Error connecting to MySQL:', err);
+          return;
+        }
+        console.log('Connected to MySQL');
+        
+        connection.query('SELECT * FROM tg', (err, results) => {
+          if (err) {
+            console.error('Error querying MySQL:', err);
+            return;
+          }
+          console.log('Data from tg table:', results);
+        });
+      });
+
 
       let tg = window.Telegram.WebApp;
       tg.expand();
