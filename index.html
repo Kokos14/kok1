@@ -25,7 +25,7 @@
     
     <script>
       // Подключаемся к WebSocket серверу
-      var socket = new WebSocket("ws://localhost:8765");
+      var socket = new WebSocket("ws://kokos14.github.io/kok1:8765");
 
       // Обработчик события открытия соединения
       socket.onopen = function(event) {
@@ -44,7 +44,7 @@
           console.log("Отправлено сообщение на сервер: " + message);
       }
     </script>
-    
+
     <h1>WebSocket Example</h1>
     <input type="text" id="message" placeholder="Введите сообщение">
     <button onclick="sendMessage()">Отправить</button>
