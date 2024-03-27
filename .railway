@@ -1,0 +1,2 @@
+# Используем Dockerfile для сборки и запуска приложения
+buildCommand: docker build -t $RAILWAY_APP_NAME .
