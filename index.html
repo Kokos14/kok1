@@ -17,13 +17,38 @@
       <input type="text" placeholder="Email" id="user_mail">
       <input type="text" placeholder="Phone" id="user_phone">
     </form>
-    <h1>test2</h1>
+    <h1>test3</h1>
     <button id="click1">CLICK1</button>
     <button id="click2">CLICK2</button>
 
     <div id="root"></div>
     
     
+    <script>
+      // Подключаемся к WebSocket серверу
+      var socket = new WebSocket("ws://localhost:8765");
+
+      // Обработчик события открытия соединения
+      socket.onopen = function(event) {
+          console.log("Соединение установлено");
+      };
+
+      // Обработчик события получения сообщения
+      socket.onmessage = function(event) {
+          console.log("Получено сообщение от сервера: " + event.data);
+      };
+
+      // Функция для отправки сообщения на сервер
+      function sendMessage() {
+          var message = document.getElementById("message").value;
+          socket.send(message);
+          console.log("Отправлено сообщение на сервер: " + message);
+      }
+    </script>
+    
+    <h1>WebSocket Example</h1>
+    <input type="text" id="message" placeholder="Введите сообщение">
+    <button onclick="sendMessage()">Отправить</button>
 
     <script>
 
