@@ -26,18 +26,33 @@
     
     <script>
       // Подключаемся к WebSocket серверу
-      var socket = new WebSocket("wss://kokazino_server.railway.internal:7865");
-      //
+      var socket = new WebSocket("wss://kokazinoserver-production.up.railway.app:7865");
+  
       // Обработчик события открытия соединения
       socket.onopen = function(event) {
           console.log("Соединение установлено");
       };
-
+  
       // Обработчик события получения сообщения
       socket.onmessage = function(event) {
           console.log("Получено сообщение от сервера: " + event.data);
       };
-
+  
+      // Обработчик события закрытия соединения
+      socket.onclose = function(event) {
+          if (event.wasClean) {
+              console.log('Соединение закрыто чисто');
+          } else {
+              console.log('Обрыв соединения');
+          }
+          console.log('Код: ' + event.code + ' Причина: ' + event.reason);
+      };
+  
+      // Обработчик события ошибки
+      socket.onerror = function(error) {
+          console.log('Ошибка: ' + error.message);
+      };
+  
       // Функция для отправки сообщения на сервер
       function sendMessage() {
           var message = document.getElementById("message").value;
