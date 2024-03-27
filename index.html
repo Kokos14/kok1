@@ -16,7 +16,7 @@
       <input type="text" placeholder="Email" id="user_mail">
       <input type="text" placeholder="Phone" id="user_phone">
     </form>
-
+    <h1>test1</h1>
     <button id="click1">CLICK1</button>
     <button id="click2">CLICK2</button>
 
@@ -37,7 +37,7 @@
       });
 
       cl2.addEventListener("click", () => {
-        alert("Значение было получено!" + tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name);
+        alert("Значение было получено!" + tg.initDataUnsafe.user.value);
         tg.close();
       });
       
